@@ -66,12 +66,27 @@ const initMap = () => {
       projection: "EPSG:4326", // 使用坐标系
     }),
   })
-  //   const MyZoomToExtent = new ZoomToExtent({
-  //     extend: [110, 30, 160, 30],
-  //   })
-  //   构建几何信息
-  const point = new Feature({
-    geometry: new Point([114.3, 30.5]),
+
+  let data = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [114.3, 30.5],
+            [116, 30.5],
+          ],
+        },
+      },
+    ],
+  }
+  let source = new VectorSource({
+    features: new GeoJSON().readFeatures(data),
+  })
+  let layer = new VectorLayer({
+    source,
   })
   let style = new Style({
     image: new Circle({
@@ -85,33 +100,11 @@ const initMap = () => {
       }),
     }),
   })
-  point.setStyle(style)
-  let source = new Vector({
-    features: [point],
-  })
-  let layer = new VectorLayer({
-    source,
-  })
+  // layer.setStyle(style)
   map.addLayer(layer)
-  let data = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [114.3, 30.5],
-        },
-      },
-    ],
-  }
-  let source1 = new Vector({
-    features: new GeoJSON().readFeatures(data),
+  map.on("click", (e) => {
+    console.log(e)
   })
-  let layer3 = new Vector({
-    source1,
-  })
-  // map.addLayer(layer3)
 }
 onMounted(() => {
   initMap()

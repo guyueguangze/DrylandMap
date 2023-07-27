@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ant-design-vue": "^4.0.0",
     "element-plus": "^2.3.6",
     "ol": "^7.4.0",
     "sass": "^1.63.4",

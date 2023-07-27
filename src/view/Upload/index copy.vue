@@ -93,6 +93,25 @@ const initMap = () => {
     source,
   })
   map.addLayer(layer)
+  let data = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [114.3, 30.5],
+        },
+      },
+    ],
+  }
+  let source1 = new Vector({
+    features: new GeoJSON().readFeatures(data),
+  })
+  let layer3 = new Vector({
+    source1,
+  })
+  // map.addLayer(layer3)
 }
 onMounted(() => {
   initMap()
