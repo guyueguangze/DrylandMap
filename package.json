@@ -11,8 +11,11 @@
   "dependencies": {
     "ant-design-vue": "^4.0.0",
     "element-plus": "^2.3.6",
+    "jszip": "^3.10.1",
     "ol": "^7.4.0",
     "sass": "^1.63.4",
+    "shapefile": "^0.6.6",
+    "shpjs": "^4.0.4",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"
   },

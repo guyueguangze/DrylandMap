@@ -1,4 +1,10 @@
 <template>
+  <div class="upload">
+    <el-upload v-model:file-list="fileList" class="upload-demo" multiple>
+      <el-button type="primary">上传数据</el-button>
+      <template #tip> </template>
+    </el-upload>
+  </div>
   <div :style="{ 'min-height': pageHeight }" id="mymap" class="imap"></div>
   <!-- 注意：div必需指定高度，否则加载不出来 -->
 </template>
@@ -111,6 +117,10 @@ onMounted(() => {
 })
 </script>
 <style scoped>
+.upload {
+  height: 50px;
+  /* background-color: aquamarine; */
+}
 .imap {
   min-width: 800px;
   height: 800px;
